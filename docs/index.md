@@ -13,7 +13,7 @@ The .NET developers who already know how to use Beyova Common Framework to build
     PM> Install-Package Beyova.CodingBot
   ````````````````````````````````````````````````
 
-## 2. Define Business Models in C#.
+## 2. Define Business Model(s)
 Define business models via creating interface(s) with specific attribute. Basically, if you are familiar with pattern, you can only define key functional fields. Following code is an example of define model **_Commodity_**.
   ````````````````````````````````````````````````
     using System;
@@ -38,7 +38,7 @@ Define business models via creating interface(s) with specific attribute. Basica
         }
     }
   ````````````````````````````````````````````````
-## 3. Generate Codes & Scripts.
+## 3. Generate Codes & Scripts
 You might have to write some codes to make code generation happen. You need a method to run following example codes.
 
   ````````````````````````````````````````````````
@@ -53,11 +53,11 @@ You might have to write some codes to make code generation happen. You need a me
   var package = ServiceSolutionCodingBot.Generate(options);
   package.GenerateSqlPublishScript();
 
-  var storageContainer = new FileContainer(Path.Combine(EnvironmentCore.ApplicationBaseDirectory, "Output"));
+  // If you want to output to folder, just new FileContainer and set your root folder. 
+  var storageContainer = new FileContainer(@"C:\CodingBotOutput");
   package.PutIntoStorageContainer(storageContainer);
 
   storageContainer.WriteToDestination();
-
   ````````````````````````````````````````````````
 NOTES:
 - **SolutionName** in **ServiceSolutionCodingBotOptions** should not contains special charactor, like dot (.)
@@ -157,8 +157,8 @@ CodeDriven (0x0020)               |CodeDriven + KeyIdentifier (0x0030)|
 
 
 # Version History
-Version  |Released Date  |Direct Dependency Version|Comments
----------|---------------|-------------------------|--------------------
-0.1.0    |Sep 21st, 2018 |Beyova.Common-4.2.0      |Init version
+Version  |Released Date  |Beyova.Common Version|Comments
+---------|---------------|---------------------|--------------------
+0.1.0    |Sep 21st, 2018 |4.2.0                |Init version
 
 
