@@ -1,6 +1,6 @@
 
 # Appropriate Audience
-The .NET developers who already know how to use Beyova Common Framework to build RESTful API Services, or the one would like to be. C#/Visual Studio knowledge is definately required.
+The .NET developers who already know how to use Beyova Common Framework to build RESTful API Services, or the one would like to be. C#/Visual Studio knowledge is definitely required.
 
 # Get Started
 ## 1. Prerequisite
