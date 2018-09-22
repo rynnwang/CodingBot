@@ -15,7 +15,7 @@ The .NET developers who already know how to use Beyova Common Framework to build
 
 ## 2. Define Business Model(s)
 Define business models via creating interface(s) with specific attribute. Basically, if you are familiar with pattern, you can only define key functional fields. Following code is an example of define model **_Commodity_**.
-  ```CSharp
+  ``````````csharp
     using System;
     using Beyova;
     using Beyova.CodingBot;
@@ -37,11 +37,11 @@ Define business models via creating interface(s) with specific attribute. Basica
             DateTime? ExpiredStamp { get; set; }
         }
     }
-  ```
+  ``````````
 ## 3. Generate Codes & Scripts
 You might have to write some codes to make code generation happen. You need a method to run following example codes.
 
-  ```CSharp
+  ``````````csharp
   // Define options, including solution name, namespace, etc.
   ServiceSolutionCodingBotOptions options = new ServiceSolutionCodingBotOptions
   {
@@ -58,11 +58,11 @@ You might have to write some codes to make code generation happen. You need a me
   package.PutIntoStorageContainer(storageContainer);
 
   storageContainer.WriteToDestination();
-  ```
+  ``````````
 NOTES:
 - **SolutionName** in **ServiceSolutionCodingBotOptions** should not contains special charactor, like dot (.)
 - When **UseLowerCamelNamingForJsonSeriliazation** is set as **true**, **JsonPropertyAttribute** would be attached on each field of model to use lower case camel naming, to meet JSON naming requirement.
-  ```CSharp
+  ``````````csharp
   /// <summary>class Commodity</summary>
   public class Commodity:
       Beyova.CodingBot.UnitTest.ICommodity,
@@ -117,7 +117,7 @@ NOTES:
       public Beyova.ObjectState State { get; set; }
 
   }
-  ```
+  ``````````
 
 ## 4. Customize Your Codes
 If you design correctly and select right pattern(s) to use, this auto generation can help you save at least 70% time, especially at the beginning of project cycles. You can focus on the real business logics based on existed models, methods and APIs, rather than keeping boring copy-paste and troubleshooting the stupid mistakes caused by pasting something wrong.
@@ -157,6 +157,8 @@ CodeDriven (0x0020)               |CodeDriven + KeyIdentifier (0x0030)|
 
 
 # Version History
+History is order by date decending.
+
 Version  |Released Date  |Beyova.Common Version|Comments
 ---------|---------------|---------------------|--------------------
 0.1.0    |Sep 21st, 2018 |4.2.0                |Init version
