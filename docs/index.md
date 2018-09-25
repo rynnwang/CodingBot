@@ -66,6 +66,33 @@ You might have to write some codes to make code generation happen. You need a me
 
   storageContainer.WriteToDestination();
   ``````````
+
+In 0.3.0 or above version, it supports generate as VS solution files. Following example shows how to generate as a Zip file, which contains entire solution.
+
+   ``````````csharp
+    ServiceSolutionCodingBotOptions options = new ServiceSolutionCodingBotOptions
+    {
+        UseLowerCamelNamingForJsonSeriliazation = true,
+        SolutionName = "BeyovaCodingBotExample",
+        NameSpace = "Beyova.CodingBot.Example",
+        IsolatedGenerationMode = true
+    };
+
+    var package = ServiceSolutionCodingBot.Generate(options);
+    package.GenerateSqlPublishScript();
+
+    using (var memoryStream = new MemoryStream())
+    {
+        var storageContainer = new ZipFileContainer(memoryStream);
+        package.PutIntoStorageContainerAsVisualStudioSolution(storageContainer);
+
+        storageContainer.WriteToDestination();
+
+        File.WriteAllBytes(@"C:\CodingBotOutput\solution.zip"), memoryStream.ReadStreamToBytes());
+    }
+
+   ``````````
+
 NOTES:
 - **SolutionName** in **ServiceSolutionCodingBotOptions** should not contains special charactor, like dot (.)
 - When **UseLowerCamelNamingForJsonSeriliazation** is set as **true**, **JsonPropertyAttribute** would be attached on each field of model to use lower case camel naming, to meet JSON naming requirement.
@@ -162,6 +189,10 @@ Snapshot (0x0008)                 |Snapshot + KeyIdentifier (0x0018)|
 KeyIdentifier (0x0010)            |KeyIdentifier (0x0010)|
 CodeDriven (0x0020)               |CodeDriven + KeyIdentifier (0x0030)|
 
+## Isolation mode
+
+Isolation mode is used when model interfaces defined for code generation would/should not be a part of actual solution. When isolation mode is set as **True**, the interfaces and enums would be duplicated into output, whose namespace would be kept as same as other outputs.
+
 
 # Version History
 History is order by date decending.
@@ -169,5 +200,7 @@ History is order by date decending.
 Version  |Released Date  |Beyova.Common Version|Comments
 ---------|---------------|---------------------|--------------------
 0.1.0    |Sep 21st, 2018 |4.2.0                |Init version
+0.2.0    |Sep 23rd, 2018 |4.2.1                |Enhancement. Support Isolation mode.
+0.3.0    |Sep 26th, 2018 |4.2.2                |Support generate as solution files.
 
 
