@@ -94,8 +94,8 @@ In 0.3.0 or above version, it supports generate as VS solution files. Following 
    ``````````
 
 NOTES:
-- **SolutionName** in **ServiceSolutionCodingBotOptions** should not contains special charactor, like dot (.)
 - When **UseLowerCamelNamingForJsonSeriliazation** is set as **true**, **JsonPropertyAttribute** would be attached on each field of model to use lower case camel naming, to meet JSON naming requirement.
+
   ``````````csharp
   /// <summary>class Commodity</summary>
   public class Commodity:
@@ -202,5 +202,6 @@ Version  |Released Date  |Beyova.Common Version|Comments
 0.1.0    |Sep 21st, 2018 |4.2.0                |Init version
 0.2.0    |Sep 23rd, 2018 |4.2.1                |Enhancement. Support Isolation mode.
 0.3.0    |Sep 26th, 2018 |4.2.2                |Support generate as solution files.
+0.4.0    |Sep 29th, 2018 |4.2.3                |Fix bugs (1. NullRef exception when secondary table is null. 2. When property type is JToken)
 
 
