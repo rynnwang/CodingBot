@@ -203,5 +203,6 @@ Version  |Released Date  |Beyova.Common Version|Comments
 0.2.0    |Sep 23rd, 2018 |4.2.1                |Enhancement. Support Isolation mode.
 0.3.0    |Sep 26th, 2018 |4.2.2                |Support generate as solution files.
 0.4.0    |Sep 29th, 2018 |4.2.3                |Fix bugs (1. NullRef exception when secondary table is null. 2. When property type is JToken)
+0.4.1    |Oct 5th, 2018  |4.3.0                |Fix bugs and enhancement
 
 
